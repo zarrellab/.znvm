@@ -79,5 +79,7 @@ load-by-nvmrc() {
 	fi
 }
 add-zsh-hook chpwd load-by-nvmrc
+export PERIOD=10
+add-zsh-hook periodic load-by-nvmrc
 
 alias nvm='load-nvm'
