@@ -35,9 +35,7 @@ znvm_find_nvmrc() {
 
 load-nvm() {
 	# if nvm command is present nvm is ready no need to load
-	if [[ $(command -v nvm) == "nvm" ]]; then
-		echo "nvm is ready"
-	else
+	if [[ ! $(command -v nvm) == "nvm" ]]; then
 		# unalias nvm if alias exists
 		[ `alias | grep nvm | wc -l` != 0 ] && unalias nvm
 
@@ -48,7 +46,6 @@ load-nvm() {
 		[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 	fi
 }
-
 
 autoload -U add-zsh-hook
 load-by-nvmrc() {
