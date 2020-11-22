@@ -23,8 +23,10 @@ if [ ! -f $ZSHRC_PATH ]; then
 fi
 
 
-# check if nvm is installed from homebrew as expected
-local NVM_PATH="/usr/local/opt/nvm/nvm.sh"
+# check if nvm is installed as expected
+
+[[ $OSTYPE == darwin* ]] && local NVM_PATH="/usr/local/opt/nvm/nvm.sh"
+[[ $OSTYPE == linux* ]] && local NVM_PATH="$HOME/.nvm"
 if [ ! -f $NVM_PATH ]; then
 	echo "ERROR: $NVM_PATH not found. Please check your nvm installation. Aborted."
 	exit 1
