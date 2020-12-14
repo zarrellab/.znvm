@@ -7,7 +7,7 @@ source "$HOME/.zprezto/modules/zsh/znvm/znvm.conf.sh"
 znvm_contains_elem () {
   local e match="$1"
   shift
-  for e; do [[ "$match" =~ "^\ *$e\ +.*" ]] && return 0; done
+  for e; do [[ "$match" =~ "$e\ +.*|$e" ]] && return 0; done
   return 1
 }
 
